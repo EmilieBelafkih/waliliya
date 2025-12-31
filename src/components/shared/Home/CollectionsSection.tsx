@@ -154,7 +154,7 @@ export default function CollectionsProducts({
   collections: Collection[];
 }) {
   const masterOrder = [
-    'abayas', // 1 (Top Left)
+    'toutes-nos-abayas', // 1 (Top Left)
     'abayas-luxe-dubai', // 2 (Top Middle)
     'abaya-essentielle', // 3 (Top Right)
     'summer', // 4 (Bottom Left Landscape)

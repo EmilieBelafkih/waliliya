@@ -7,6 +7,8 @@ export default async function Home() {
   const collections = await getCollections();
   const filteredCollections = collections.filter((c) => c.handle !== '');
 
+  console.log('Filtered Collections:', filteredCollections);
+
   return (
     <section className="w-full">
       <HeroSection />
