@@ -21,8 +21,8 @@ const contactInfo = [
     icon: <MdLocationOn />,
     text: (
       <>
-        El Bassatine
-        <br /> 50000 Meknès
+        Hamria
+        <br /> 36123 Meknès
       </>
     ),
     href: null,

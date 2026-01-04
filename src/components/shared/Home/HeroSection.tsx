@@ -72,7 +72,7 @@ export default function HeroSection() {
           {/* UPDATED: Tagline is Olive Green */}
           <FadeIn vars={{ delay: 0.2 }}>
             <span className="font-subtitle text-sm md:text-base font-semibold tracking-widest uppercase text-[#9d5035] mb-4 block pl-1">
-              Nouvelles Collections
+              Entrer dans l&apos;univers Waliliya
             </span>
           </FadeIn>
 
@@ -96,13 +96,14 @@ export default function HeroSection() {
             vars={{ delay: 0.8 }}
           >
             <p>
-              Une collection pensée pour la femme moderne. Des matières nobles,
-              des coupes fluides et une modestie qui ne fait aucun compromis sur
-              le style.
+              Nos produits sont pensées pour la femme musulmane moderne à
+              travers deux univers complémentaires. La mode modeste, avec des
+              abayas aux lignes épurées. Et le bien-être, avec des rituels
+              inspirés des traditions marocaines.
             </p>
           </FadeIn>
 
-          <FadeIn className="mt-10" vars={{ delay: 1 }}>
+          <FadeIn className="mt-6" vars={{ delay: 1 }}>
             <Link href="/search">
               {/* UPDATED: Button BG is Olive Green (#737b4c) */}
               <button className="group relative overflow-hidden rounded-2xl bg-[#737b4c] px-8 py-4 transition-all duration-300 hover:shadow-lg cursor-pointer">
@@ -110,7 +111,7 @@ export default function HeroSection() {
                 <div className="absolute inset-0 translate-y-full bg-[#d1fa9d] transition-transform duration-300 ease-in-out group-hover:translate-y-0" />
 
                 <span className="relative flex items-center gap-2 font-subtitle text-sm font-bold uppercase tracking-wide text-[#F5F5F0] transition-colors duration-300 group-hover:text-white">
-                  Découvrir Nos collections
+                  Découvrir Nos Produits
                   <svg
                     width="12"
                     height="12"

@@ -23,12 +23,11 @@ export default function Header({ menu }: { menu: Menu[] }) {
 
   return (
     <header className="relative">
-      <nav className="fixed z-50 w-full px-2 font-title">
+      <nav className="fixed z-50 w-full font-title">
         <div
           className={cn(
-            'relative mx-auto mt-2 container px-2 transition-all duration-300',
-            isScrolled &&
-              'max-w-7xl rounded-2xl border border-border bg-background/60 backdrop-blur-xl'
+            'relative container px-2 transition-all duration-300 bg-background/60 backdrop-blur-xl',
+            isScrolled && 'max-w-7xl rounded-2xl border border-border mt-2 '
           )}
         >
           <div className="flex items-center justify-between gap-6 py-3 lg:py-4">

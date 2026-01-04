@@ -184,13 +184,13 @@ export default function CollectionsProducts({
         <div className="text-center space-y-4 mb-16">
           <FadeIn>
             <p className="font-subtitle text-xs font-bold tracking-[0.2em] uppercase text-[#7D915B]">
-              Nos Collections
+              L&apos;univers Waliliya
             </p>
           </FadeIn>
           <div className="flex justify-center">
             <RevealText
-              text="Univers Waliliya"
-              className="font-title text-4xl text-[#3E2723] md:text-6xl"
+              text="Abayas élégantes & rituels de bien-être"
+              className="font-title text-4xl text-[#3E2723] md:text-6xl text-balance"
             />
           </div>
         </div>
