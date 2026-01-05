@@ -20,7 +20,6 @@ export function SectionOne({
 
   useGSAP(
     () => {
-      // Animate Image (Slide from Left)
       gsap.fromTo(
         '.anim-image',
         { x: -50, opacity: 0 },
@@ -33,7 +32,6 @@ export function SectionOne({
         }
       );
 
-      // Animate Text (Slide from Right)
       gsap.fromTo(
         '.anim-text',
         { x: 50, opacity: 0 },
@@ -53,11 +51,13 @@ export function SectionOne({
   return (
     <section
       ref={containerRef}
-      className="py-16 md:py-24 max-w-360 mx-auto px-6 overflow-hidden"
+      className="py-16 md:py-24 max-w-360 mx-auto px-6 overflow-visible" // Changed overflow-hidden to visible so sticky works
     >
-      <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
-        {/* LEFT: Image */}
-        <div className="w-full lg:w-1/2 anim-image opacity-0">
+      {/* UPDATED: items-center -> items-start (Crucial for sticky) */}
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
+        {/* LEFT: Image (Sticky) */}
+        {/* UPDATED: Added sticky classes */}
+        <div className="w-full lg:w-1/2 anim-image opacity-0 lg:sticky lg:top-32 self-start">
           {image && (
             <div className="relative aspect-3/4 w-full overflow-hidden rounded-2xl shadow-md">
               <Image
@@ -74,7 +74,7 @@ export function SectionOne({
         <div className="w-full lg:w-1/2 anim-text opacity-0">
           <div
             className="prose prose-lg prose-brown font-text text-[#5D4037]/80 leading-relaxed
-                       prose-headings:font-title prose-headings:text-[#3E2723] prose-headings:font-normal"
+                        prose-headings:font-title prose-headings:text-[#3E2723] prose-headings:font-normal"
             dangerouslySetInnerHTML={{ __html: htmlBody }}
           />
         </div>

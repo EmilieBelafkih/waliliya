@@ -27,7 +27,7 @@ export default function Header({ menu }: { menu: Menu[] }) {
         <div
           className={cn(
             'relative container px-2 transition-all duration-300 bg-background/60 backdrop-blur-xl',
-            isScrolled && 'max-w-7xl rounded-2xl border border-border mt-2 '
+            isScrolled && 'max-w-7xl rounded-2xl border border-border mt-2'
           )}
         >
           <div className="flex items-center justify-between gap-6 py-3 lg:py-4">

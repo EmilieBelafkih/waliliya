@@ -21,7 +21,6 @@ export function SectionTwo({
 
   useGSAP(
     () => {
-      // Animate Text (Slide from Left)
       gsap.fromTo(
         '.anim-text-2',
         { x: -50, opacity: 0 },
@@ -34,7 +33,6 @@ export function SectionTwo({
         }
       );
 
-      // Animate Image (Slide from Right)
       gsap.fromTo(
         '.anim-image-2',
         { x: 50, opacity: 0 },
@@ -52,10 +50,11 @@ export function SectionTwo({
   );
 
   return (
-    <section ref={containerRef} className="py-16 md:py-24 overflow-hidden">
+    <section ref={containerRef} className="py-16 md:py-24 overflow-visible">
       <div className="max-w-360 mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
-          {/* LEFT: Rich Text Content */}
+        {/* UPDATED: items-center -> items-start */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
+          {/* LEFT: Rich Text Content (Scrollable) */}
           <div className="w-full lg:w-1/2 order-2 lg:order-1 anim-text-2 opacity-0">
             <ShopifyRichText data={richTextJson} className="text-lg" />
             <div className="mt-8">
@@ -65,8 +64,9 @@ export function SectionTwo({
             </div>
           </div>
 
-          {/* RIGHT: Image */}
-          <div className="w-full lg:w-1/2 order-1 lg:order-2 anim-image-2 opacity-0">
+          {/* RIGHT: Image (Sticky) */}
+          {/* UPDATED: Added sticky classes */}
+          <div className="w-full lg:w-1/2 order-1 lg:order-2 anim-image-2 opacity-0 lg:sticky lg:top-32 self-start">
             {image && (
               <div className="relative aspect-square w-full overflow-hidden rounded-2xl shadow-md bg-[#f4f1ed]">
                 <Image
