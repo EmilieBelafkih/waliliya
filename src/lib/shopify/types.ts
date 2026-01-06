@@ -256,6 +256,8 @@ export type Page = {
   quote?: { value: string };
   secondDescription?: { value: string };
   portraitImage?: MetafieldImageReference;
+  thirdDescription?: { value: string };
+  thirdImage?: MetafieldImageReference;
   createdAt: string;
   updatedAt: string;
 };

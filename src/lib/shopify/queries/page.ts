@@ -44,6 +44,24 @@ const pageFragment = /* GraphQL */ `
           }
         }
       }
+      thirdDescription: metafield(
+        namespace: "custom"
+        key: "third_description"
+      ) {
+        value
+      }
+      thirdImage: metafield(namespace: "custom", key: "third_image") {
+        reference {
+          ... on MediaImage {
+            image {
+              url
+              altText
+              width
+              height
+            }
+          }
+        }
+      }
       createdAt
       updatedAt
     }

@@ -1,8 +1,8 @@
 import { getPage } from '@/lib/shopify';
 import { notFound } from 'next/navigation';
+import { BottomQuote } from '../../components/shared/About/BottomQuote';
 import { SectionOne } from './SectionOne';
 import { SectionTwo } from './SectionTwo';
-import { BottomQuote } from './BottomQuote';
 
 export const metadata = {
   title: 'La Créatrice | Waliliya',

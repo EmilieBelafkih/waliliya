@@ -6,8 +6,6 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Image as ShopifyImage } from '@/lib/shopify/types';
-import { Link } from 'next-view-transitions';
-import { FaArrowRight } from 'react-icons/fa';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -75,20 +73,10 @@ export function SectionOne({
         {/* RIGHT: Main Body Text */}
         <div className="w-full lg:w-1/2 anim-text opacity-0">
           <div
-            className="prose prose-lg prose-brown font-text text-[#5D4037]/80 leading-relaxed prose-strong:text-[#737b4c]
+            className="prose prose-lg prose-brown font-text text-[#5D4037]/80 prose-strong:text-[#737b4c] leading-relaxed
                         prose-headings:font-title prose-headings:text-[#3E2723] prose-headings:font-normal"
             dangerouslySetInnerHTML={{ __html: htmlBody }}
           />
-
-          <div className="mt-6">
-            <Link
-              href="/search"
-              className="group inline-flex items-center gap-2 text-[#737b4c] font-subtitle font-bold text-sm uppercase tracking-widest hover:text-[#d1fa9d] transition-colors"
-            >
-              Découvrir nos collections
-              <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-          </div>
         </div>
       </div>
     </section>

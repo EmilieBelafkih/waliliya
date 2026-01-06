@@ -56,7 +56,12 @@ function RenderNodes({
   if (!nodes) return null;
 
   return (
-    <div className={cn('space-y-4 font-text text-[#3E2723]', className)}>
+    <div
+      className={cn(
+        'space-y-4 font-text text-[#3E2723] prose-strong:text-[#737b4c]',
+        className
+      )}
+    >
       {nodes.map((node, i) => {
         if (node.type === 'heading') {
           const Tag = `h${node.level}` as keyof React.JSX.IntrinsicElements;
