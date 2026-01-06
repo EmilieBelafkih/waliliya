@@ -12,6 +12,12 @@ import { FaArrowRight } from 'react-icons/fa';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+type RichTextNode = {
+  type: string;
+  children?: RichTextNode[];
+  value?: string;
+};
+
 export function SectionTwo({
   image,
   richTextJson,
@@ -24,14 +30,15 @@ export function SectionTwo({
   const { part1Nodes, part2Nodes } = useMemo(() => {
     try {
       const parsed = JSON.parse(richTextJson);
-      const nodes = parsed.children || [];
+      // 2. Explicitly type the nodes array
+      const nodes: RichTextNode[] = parsed.children || [];
 
       let headingCount = 0;
 
-      const splitIndex = nodes.findIndex((node: any) => {
+      // 3. 'node' is now correctly typed as RichTextNode
+      const splitIndex = nodes.findIndex((node) => {
         if (node.type === 'heading') {
           headingCount++;
-
           return headingCount === 2;
         }
         return false;
