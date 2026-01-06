@@ -21,7 +21,6 @@ export function SectionTwo({
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // 1. ROBUST SPLIT LOGIC (Structure-based, not text-based)
   const { part1Nodes, part2Nodes } = useMemo(() => {
     try {
       const parsed = JSON.parse(richTextJson);
@@ -29,7 +28,6 @@ export function SectionTwo({
 
       let headingCount = 0;
 
-      // Find the index where the 2nd Heading starts
       const splitIndex = nodes.findIndex((node: any) => {
         if (node.type === 'heading') {
           headingCount++;
@@ -119,7 +117,7 @@ export function SectionTwo({
                     href="/search/bien-etre"
                     className="group inline-flex items-center gap-2 text-[#737b4c] font-subtitle font-bold text-sm uppercase tracking-widest hover:text-[#d1fa9d] transition-colors"
                   >
-                    Voir l'univers bien-être
+                    Voir l&apos;univers bien-être
                     <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </div>
