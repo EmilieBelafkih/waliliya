@@ -49,7 +49,6 @@ export default async function TagPage({
 
   if (!products) return notFound();
 
-  // Formatting for display title (Capitalize words)
   const displayTitle = realShopifyTag.replace(/\b\w/g, (l) => l.toUpperCase());
 
   return (
