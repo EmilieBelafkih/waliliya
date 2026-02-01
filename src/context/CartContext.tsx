@@ -4,7 +4,6 @@
 import { Cart, CartItem, Product, ProductVariant } from '@/lib/shopify/types';
 import {
   createContext,
-  use,
   useContext,
   useMemo,
   useOptimistic,
@@ -23,7 +22,7 @@ type CartContextType = {
   updateCartItem: (
     merchandiseId: string,
     updateType: UpdateType,
-    maxQuantity?: number
+    maxQuantity?: number,
   ) => void;
   addCartItem: (variant: ProductVariant, product: Product) => void;
   isOpen: boolean;
@@ -67,7 +66,7 @@ function calculateItemCost(quantity: number, price: string): string {
 
 function updateCartItemReducer(
   item: CartItem,
-  updateType: UpdateType
+  updateType: UpdateType,
 ): CartItem | null {
   if (updateType === 'delete') return null;
 
@@ -79,7 +78,7 @@ function updateCartItemReducer(
   const singleItemAmount = Number(item.cost.totalAmount.amount) / item.quantity;
   const newTotalAmount = calculateItemCost(
     newQuantity,
-    singleItemAmount.toString()
+    singleItemAmount.toString(),
   );
 
   return {
@@ -96,12 +95,12 @@ function updateCartItemReducer(
 }
 
 function updateCartTotals(
-  lines: CartItem[]
+  lines: CartItem[],
 ): Pick<Cart, 'totalQuantity' | 'cost'> {
   const totalQuantity = lines.reduce((sum, item) => sum + item.quantity, 0);
   const totalAmount = lines.reduce(
     (sum, item) => sum + Number(item.cost.totalAmount.amount),
-    0
+    0,
   );
 
   const currencyCode = lines[0]?.cost.totalAmount.currencyCode ?? 'MAD';
@@ -119,7 +118,7 @@ function updateCartTotals(
 function createOrUpdateCartItem(
   existingItem: CartItem | undefined,
   variant: ProductVariant,
-  product: Product
+  product: Product,
 ): CartItem {
   const quantity = existingItem ? existingItem.quantity + 1 : 1;
   const totalAmount = calculateItemCost(quantity, variant.price.amount);
@@ -157,7 +156,7 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
         .map((item) =>
           item.merchandise.id === merchandiseId
             ? updateCartItemReducer(item, updateType)
-            : item
+            : item,
         )
         .filter(Boolean) as CartItem[];
 
@@ -182,17 +181,17 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
     case 'ADD_ITEM': {
       const { variant, product } = action.payload;
       const existingItem = currentCart.lines.find(
-        (item) => item.merchandise.id === variant.id
+        (item) => item.merchandise.id === variant.id,
       );
       const updatedItem = createOrUpdateCartItem(
         existingItem,
         variant,
-        product
+        product,
       );
 
       const updatedLines = existingItem
         ? currentCart.lines.map((item) =>
-            item.merchandise.id === variant.id ? updatedItem : item
+            item.merchandise.id === variant.id ? updatedItem : item,
           )
         : [...currentCart.lines, updatedItem];
 
@@ -209,15 +208,14 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
 
 export function CartProvider({
   children,
-  cartPromise,
+  cart,
 }: {
   children: React.ReactNode;
-  cartPromise: Promise<Cart | undefined>;
+  cart: Cart | undefined;
 }) {
-  const initialCart = use(cartPromise);
   const [optimisticCart, updateOptimisticCart] = useOptimistic(
-    initialCart,
-    cartReducer
+    cart,
+    cartReducer,
   );
 
   const [isOpen, setIsOpen] = useState(false);
@@ -225,11 +223,9 @@ export function CartProvider({
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
-  // --- THE FIX IS HERE ---
   const updateCartItem = (merchandiseId: string, updateType: UpdateType) => {
-    // 1. Get current item to calculate payload for server
     const item = optimisticCart?.lines.find(
-      (line) => line.merchandise.id === merchandiseId
+      (line) => line.merchandise.id === merchandiseId,
     );
 
     if (!item) return;
@@ -281,7 +277,7 @@ export function CartProvider({
       openCart,
       closeCart,
     }),
-    [optimisticCart, isOpen]
+    [optimisticCart, isOpen],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

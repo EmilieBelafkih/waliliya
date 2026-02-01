@@ -8,7 +8,7 @@ export default function ClientProviders({
   cart,
 }: {
   children: React.ReactNode;
-  cart: Promise<Cart | undefined>;
+  cart: Cart | undefined;
 }) {
-  return <CartProvider cartPromise={cart}>{children}</CartProvider>;
+  return <CartProvider cart={cart}>{children}</CartProvider>;
 }

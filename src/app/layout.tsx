@@ -68,7 +68,7 @@ export default async function RootLayout({
   const cookiesList = await cookies();
 
   const cartId = cookiesList.get('cartId')?.value;
-  const cart = getCart(cartId);
+  const cart = await getCart(cartId);
 
   return (
     <ViewTransitions>
