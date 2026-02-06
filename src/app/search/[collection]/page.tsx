@@ -25,11 +25,9 @@ export default async function CategoryPage({
   params,
   searchParams,
 }: {
-  // 1. Type them as Promises for Next.js 15+
   params: Promise<{ collection: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  // 2. Await the promises before using them
   const resolvedParams = await params;
   const resolvedSearchParams = await searchParams;
 
@@ -49,7 +47,6 @@ export default async function CategoryPage({
 
   return (
     <section>
-      {/* Cinematic Header */}
       <h1 className="mb-8 font-title text-3xl text-[#9d5035] uppercase md:text-5xl tracking-tight">
         {displayTitle}
       </h1>

@@ -31,7 +31,7 @@ export function SectionOne({
           duration: 1,
           ease: 'power3.out',
           scrollTrigger: { trigger: '.anim-image', start: 'top 80%' },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -44,21 +44,18 @@ export function SectionOne({
           delay: 0.2,
           ease: 'power3.out',
           scrollTrigger: { trigger: '.anim-text', start: 'top 80%' },
-        }
+        },
       );
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
     <section
       ref={containerRef}
-      className="py-16 md:py-24 max-w-360 mx-auto px-6 overflow-visible" // Changed overflow-hidden to visible so sticky works
+      className="py-16 md:py-24 max-w-360 mx-auto px-6 overflow-visible"
     >
-      {/* UPDATED: items-center -> items-start (Crucial for sticky) */}
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
-        {/* LEFT: Image (Sticky) */}
-        {/* UPDATED: Added sticky classes */}
         <div className="w-full lg:w-1/2 anim-image opacity-0 lg:sticky lg:top-32 self-start">
           {image && (
             <div className="relative aspect-3/4 w-full overflow-hidden rounded-2xl shadow-md">
@@ -72,7 +69,6 @@ export function SectionOne({
           )}
         </div>
 
-        {/* RIGHT: Main Body Text */}
         <div className="w-full lg:w-1/2 anim-text opacity-0">
           <div
             className="prose prose-lg prose-brown font-text text-[#5D4037]/80 leading-relaxed prose-strong:text-[#737b4c]

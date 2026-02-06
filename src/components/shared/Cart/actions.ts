@@ -14,7 +14,7 @@ import { redirect } from 'next/navigation';
 
 export async function addItem(
   prevState: unknown,
-  formData: FormData
+  formData: FormData,
 ): Promise<string | undefined> {
   const cookiesList = await cookies();
 
@@ -37,7 +37,7 @@ export async function addItem(
       { merchandiseId: selectedVariantId, quantity: 1 },
     ]);
     revalidateTag(TAGS.cart);
-    return 'success'; // Ensure we return the success string for the client-side check
+    return 'success';
   } catch (error) {
     console.error(error);
     return 'Error adding item to cart';
@@ -49,7 +49,7 @@ export async function updateItemQuantity(
   payload: {
     merchandiseId: string;
     quantity: number;
-  }
+  },
 ) {
   const cookiesList = await cookies();
 
@@ -68,7 +68,7 @@ export async function updateItemQuantity(
     }
 
     const lineItem = cart.lines.find(
-      (line) => line.merchandise.id === merchandiseId
+      (line) => line.merchandise.id === merchandiseId,
     );
 
     if (lineItem && lineItem.id) {
@@ -84,7 +84,6 @@ export async function updateItemQuantity(
         ]);
       }
     } else if (quantity > 0) {
-      // If the item doesn't exist in the cart and quantity > 0, add it
       await addToCart(cartId, [{ merchandiseId, quantity }]);
     }
 
@@ -111,7 +110,7 @@ export async function removeItem(prevState: unknown, merchandiseId: string) {
     }
 
     const lineItem = cart.lines.find(
-      (line) => line.merchandise.id === merchandiseId
+      (line) => line.merchandise.id === merchandiseId,
     );
 
     if (lineItem && lineItem.id) {

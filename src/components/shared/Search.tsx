@@ -69,7 +69,7 @@ export default function Search() {
       if (
         containerRef.current &&
         !containerRef.current.contains(event.target as Node) &&
-        !inputRef.current?.value // Keep open if there is text
+        !inputRef.current?.value
       ) {
         setIsExpanded(false);
       }
@@ -84,7 +84,7 @@ export default function Search() {
       onSubmit={onSubmit}
       className={cn(
         'flex items-center bg-transparent border border-transparent rounded-full overflow-hidden transition-colors duration-300',
-        isExpanded ? 'bg-background/50' : 'bg-transparent'
+        isExpanded ? 'bg-background/50' : 'bg-transparent',
       )}
       style={{
         borderColor: isExpanded ? '#e5e7eb' : 'transparent',
@@ -119,7 +119,6 @@ export default function Search() {
         autoComplete="off"
       />
 
-      {/* Optional clear button inside expanded view */}
       {isExpanded && (
         <button
           type="button"

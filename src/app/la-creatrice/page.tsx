@@ -14,7 +14,6 @@ export default async function CreatorPage() {
 
   if (!page) return notFound();
 
-  // Extract Data
   const section1Image = page.heroImage?.reference?.image;
   const section1Body = page.body;
 
@@ -25,15 +24,12 @@ export default async function CreatorPage() {
 
   return (
     <div className="min-h-screen pt-32">
-      {/* 1. SECTION ONE: Image Left / Text Right */}
       <SectionOne image={section1Image} htmlBody={section1Body} />
 
-      {/* 2. SECTION TWO: Text Left / Image Right */}
       {section2Text && (
         <SectionTwo richTextJson={section2Text} image={section2Image} />
       )}
 
-      {/* 3. BOTTOM DARK SECTION */}
       <BottomQuote richText={quote} />
     </div>
   );

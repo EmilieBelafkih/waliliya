@@ -24,7 +24,6 @@ export default async function FAQPage() {
           </p>
         </div>
 
-        {/* Pass data to the client component */}
         <FAQClient data={faqData} />
       </Bounded>
     </div>

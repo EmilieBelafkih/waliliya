@@ -5,7 +5,6 @@ export default function Loading() {
     <div className="bg-[#fffdfa] min-h-screen pt-32 pb-20">
       <div className="mx-auto max-w-360 px-6">
         <div className="flex flex-col lg:flex-row gap-20">
-          {/* Left Column Skeleton */}
           <div className="basis-3/5">
             <Skeleton className="aspect-3/4 w-full rounded-xl bg-[#f4f1ed]" />
             <div className="grid grid-cols-5 gap-4 mt-6">
@@ -32,7 +31,6 @@ export default function Loading() {
             </div>
             <div className="pt-8">
               <Skeleton className="h-14 w-full rounded-full bg-[#f4f1ed]" />{' '}
-              {/* ATC Button */}
             </div>
           </div>
         </div>

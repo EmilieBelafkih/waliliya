@@ -120,7 +120,7 @@ export function ProductMedia({ images }: { images: ShopifyImage[] }) {
               key={i}
               className={cn(
                 'h-1.5 w-1.5 rounded-full transition-all',
-                i === selectedIndex ? 'bg-[#3E2723] w-3' : 'bg-[#3E2723]/30'
+                i === selectedIndex ? 'bg-[#3E2723] w-3' : 'bg-[#3E2723]/30',
               )}
             />
           ))}
@@ -138,7 +138,7 @@ export function ProductMedia({ images }: { images: ShopifyImage[] }) {
                 'relative aspect-3/4 overflow-hidden rounded-lg bg-[#f4f1ed] transition-all duration-300',
                 selectedIndex === index
                   ? 'ring-2 ring-[#3E2723] opacity-100 scale-95'
-                  : 'opacity-60 hover:opacity-100 hover:scale-105'
+                  : 'opacity-60 hover:opacity-100 hover:scale-105',
               )}
             >
               <Image
@@ -180,7 +180,6 @@ function ProductModal({
   const contentRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
-  // Sync internal modal index with prop when opening
   useEffect(() => {
     if (isOpen) setIndex(startIndex);
   }, [isOpen, startIndex]);
@@ -203,7 +202,7 @@ function ProductModal({
       gsap.fromTo(
         contentRef.current,
         { scale: 0.95, opacity: 0, y: 10 },
-        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(1.2)' }
+        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(1.2)' },
       );
     } else {
       document.body.style.overflow = '';
@@ -238,7 +237,7 @@ function ProductModal({
       ref={modalRef}
       className={cn(
         'fixed inset-0 z-9999 flex items-center justify-center bg-black/95 backdrop-blur-md opacity-0 pointer-events-none',
-        isOpen ? 'pointer-events-auto' : ''
+        isOpen ? 'pointer-events-auto' : '',
       )}
     >
       <button
@@ -281,6 +280,6 @@ function ProductModal({
         </div>
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }

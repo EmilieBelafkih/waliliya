@@ -30,7 +30,7 @@ export default function DesktopNav({ menu }: { menu: Menu[] }) {
                 <ChevronDown
                   className={cn(
                     'h-4 w-4 transition-transform duration-300',
-                    hoveredItem === item.title ? '-rotate-180' : 'rotate-0'
+                    hoveredItem === item.title ? '-rotate-180' : 'rotate-0',
                   )}
                 />
               )}
@@ -43,11 +43,11 @@ export default function DesktopNav({ menu }: { menu: Menu[] }) {
                   'absolute top-full left-0 w-full pt-2 transition-all duration-300 ease-in-out z-0',
                   hoveredItem === item.title
                     ? 'opacity-100 visible translate-y-0'
-                    : 'opacity-0 invisible -translate-y-2 pointer-events-none'
+                    : 'opacity-0 invisible -translate-y-2 pointer-events-none',
                 )}
               >
                 {/* Dropdown Content */}
-                {/* UPDATED: Border uses greenish tint */}
+
                 <div className="bg-background/90 backdrop-blur-xl border border-[#737b4c]/20 w-full py-8 rounded-2xl shadow-xl">
                   <div className="mx-auto max-w-7xl px-8 flex justify-center font-text">
                     <div className="grid grid-cols-4 gap-12 text-center">

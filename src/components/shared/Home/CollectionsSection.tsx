@@ -38,11 +38,11 @@ const PortraitCard = ({
               end: 'bottom top',
               scrub: true,
             },
-          }
+          },
         );
       }
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -102,11 +102,11 @@ const LandscapeCard = ({ collection }: { collection: Collection }) => {
               end: 'bottom top',
               scrub: true,
             },
-          }
+          },
         );
       }
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -161,7 +161,6 @@ export default function CollectionsProducts({
     'bien-etre', // 5 (Bottom Right Landscape)
   ];
 
-  // 2. SORT THE COLLECTIONS
   const sortedCollections = [...collections].sort((a, b) => {
     const indexA = masterOrder.indexOf(a.handle);
     const indexB = masterOrder.indexOf(b.handle);
@@ -173,7 +172,6 @@ export default function CollectionsProducts({
     return indexA - indexB;
   });
 
-  // 3. SLICE FOR LAYOUT
   const topRow = sortedCollections.slice(0, 3);
   const bottomRow = sortedCollections.slice(3, 5); // Items 4 and 5
 

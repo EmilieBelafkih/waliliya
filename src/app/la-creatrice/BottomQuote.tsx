@@ -11,7 +11,6 @@ export function BottomQuote({ richText }: { richText: string }) {
     <section className="w-full bg-[#1a1a1a] py-24 md:py-32 text-[#F5F5F0] mt-12">
       <FadeIn>
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
-          {/* The Rich Text Quote */}
           <div className="font-title text-2xl md:text-4xl leading-relaxed [&_p]:text-[#F5F5F0]">
             <ShopifyRichText data={richText} className="justify-center" />
           </div>

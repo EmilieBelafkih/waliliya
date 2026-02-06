@@ -24,25 +24,20 @@ export default async function AboutPage() {
   const section3Text = page.thirdDescription?.value as string;
   const section3Image = page.thirdImage?.reference?.image;
 
-  // Quote
   const quote = page.quote?.value as string;
 
   return (
     <div className="min-h-screen pt-32">
-      {/* 1. SECTION ONE: Image Left / Text Right */}
       <SectionOne image={section1Image} htmlBody={section1Body} />
 
-      {/* 2. SECTION TWO: Text Left / Image Right */}
       {section2Text && (
         <SectionTwo richTextJson={section2Text} image={section2Image} />
       )}
 
-      {/* 3. SECTION THREE: Image Left / Text Right (Alternating) */}
       {section3Text && (
         <SectionThree richTextJson={section3Text} image={section3Image} />
       )}
 
-      {/* 4. BOTTOM DARK SECTION */}
       {quote && <BottomQuote richText={quote} />}
     </div>
   );

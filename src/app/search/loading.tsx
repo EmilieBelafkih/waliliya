@@ -7,11 +7,9 @@ export default function Loading() {
   return (
     <div className="bg-[#fffdfa] min-h-screen pt-24 md:pt-32 pb-20">
       <div className="mx-auto flex max-w-360 flex-col gap-8 px-6 lg:flex-row lg:items-start">
-        {/* --- SIDEBAR SKELETON --- */}
         <aside className="h-fit space-y-8 lg:sticky lg:top-[18vh] lg:w-64 hidden lg:block">
-          {/* Section 1: Collections */}
           <div>
-            <div className={skeletonTitle} /> {/* Title */}
+            <div className={skeletonTitle} />
             {[...Array(6)].map((_, i) => (
               <div key={i} className={skeletonText} />
             ))}

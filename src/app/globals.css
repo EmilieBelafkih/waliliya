@@ -127,14 +127,13 @@
   body {
     @apply bg-background text-foreground;
   }
-  /* Prevent horizontal overflow and ensure proper z-index stacking */
+
   html,
   body {
     max-width: 100vw;
     position: relative;
   }
 
-  /* Ensure dialogs and drawers are always on top and not clipped */
   #__next,
   body > div:first-child {
     isolation: isolate;
@@ -369,7 +368,6 @@ html {
   animation: gradientShift 8s ease infinite;
 }
 
-/* Background Effects */
 .glow-background {
   background-color: hsla(0, 0%, 0%, 0);
   background-image:
@@ -414,7 +412,6 @@ html {
   animation: 0.8s cubic-bezier(0.22, 1, 0.36, 1) both fade-in;
 }
 
-/* Persistent Elements */
 .navbar {
   view-transition-name: navbar;
 }

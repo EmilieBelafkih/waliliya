@@ -27,7 +27,6 @@ const slugify = (text: string) => {
     .replace(/--+/g, '-');
 };
 
-// --- Single Accordion Item ---
 function AccordionItem({
   question,
   answer,
@@ -82,12 +81,10 @@ function AccordionItem({
   );
 }
 
-// --- Main Layout ---
 export default function FAQClient({ data }: { data: FAQData }) {
   const categories = Object.keys(data);
   const [activeCategory, setActiveCategory] = useState(categories[0]);
 
-  // Handle Scroll Spy (Update active link on scroll)
   useEffect(() => {
     const ctx = gsap.context(() => {
       categories.forEach((cat) => {
@@ -105,7 +102,6 @@ export default function FAQClient({ data }: { data: FAQData }) {
     return () => ctx.revert();
   }, [categories]);
 
-  // Handle Click to Scroll
   const scrollToCategory = (cat: string) => {
     setActiveCategory(cat);
     const selector = `#cat-${slugify(cat)}`;
@@ -119,7 +115,6 @@ export default function FAQClient({ data }: { data: FAQData }) {
 
   return (
     <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
-      {/* --- LEFT: Sticky Navigation --- */}
       <div className="hidden lg:block w-1/4 sticky top-32">
         <div className="space-y-1 border-l-2 border-[#F5F5F0]">
           {categories.map((cat) => (
@@ -130,7 +125,7 @@ export default function FAQClient({ data }: { data: FAQData }) {
                 'block w-full text-left pl-6 py-3 text-sm font-bold uppercase tracking-widest transition-all duration-300 border-l-2 -ml-0.5',
                 activeCategory === cat
                   ? 'border-[#9d5035] text-[#9d5035]'
-                  : 'border-transparent text-[#5D4037]/50 hover:text-[#5D4037]'
+                  : 'border-transparent text-[#5D4037]/50 hover:text-[#5D4037]',
               )}
             >
               {cat}
@@ -139,7 +134,6 @@ export default function FAQClient({ data }: { data: FAQData }) {
         </div>
       </div>
 
-      {/* --- RIGHT: Content Sections --- */}
       <div className="w-full lg:w-3/4 space-y-20">
         {categories.map((cat, i) => (
           <section

@@ -36,11 +36,11 @@ export function ContactSection({
             scale: 1,
             duration: 2.5,
             ease: 'power2.out',
-          }
+          },
         );
       }
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -48,7 +48,6 @@ export function ContactSection({
       ref={containerRef}
       className="relative h-screen min-h-200 w-full overflow-hidden bg-[#1a1a1a]"
     >
-      {/* --- Background Image --- */}
       <div className="absolute inset-0 w-full h-full">
         <FadeIn
           vars={{ scale: 1, opacity: 0.7 }}
@@ -62,15 +61,13 @@ export function ContactSection({
             priority
             className="object-fill motion-reduce:opacity-50"
           />
-          {/* Soft Overlay to ensure text readability (Beige/Warm tint) */}
+
           <div className="absolute inset-0 bg-[#3E2723]/10 mix-blend-multiply" />
           <div className="absolute inset-0 bg-linear-to-t from-[#F5F5F0]/20 via-transparent to-transparent" />
         </FadeIn>
       </div>
 
-      {/* --- Centered Content --- */}
       <div className="relative z-10 flex h-full flex-col justify-center items-center px-6 max-w-4xl mx-auto ">
-        {/* Subtitle (Quote) */}
         {subtitle && (
           <FadeIn vars={{ y: 20 }}>
             <span className="font-subtitle text-sm md:text-base font-bold tracking-[0.2em] uppercase text-[#F5F5F0]/80 mb-6  border-b border-[#F5F5F0]/30 pb-4 inline-block">
@@ -79,14 +76,12 @@ export function ContactSection({
           </FadeIn>
         )}
 
-        {/* Main Title */}
         <FadeIn vars={{ y: 20, delay: 0.2 }}>
           <h1 className="font-title text-5xl md:text-7xl lg:text-8xl mb-10 leading-tight text-[#b88d6a]">
             {title}
           </h1>
         </FadeIn>
 
-        {/* Rich Text Body (Email, Hours, etc.) */}
         <FadeIn vars={{ y: 20, delay: 0.4 }}>
           <div className="backdrop-blur-sm bg-white/10 border border-white/10 p-8 md:p-12 rounded-2xl shadow-2xl">
             <ShopifyRichText

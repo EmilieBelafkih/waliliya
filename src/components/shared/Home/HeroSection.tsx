@@ -24,7 +24,7 @@ export default function HeroSection() {
           scale: 1,
           duration: 2.5,
           ease: 'power2.out',
-        }
+        },
       );
 
       gsap.to(containerRef.current, {
@@ -40,7 +40,7 @@ export default function HeroSection() {
         ease: 'power1.out',
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -69,14 +69,12 @@ export default function HeroSection() {
       {/* --- Content --- */}
       <Bounded className="relative flex h-full flex-col justify-center pt-20">
         <div className="max-w-3xl">
-          {/* UPDATED: Tagline is Olive Green */}
           <FadeIn vars={{ delay: 0.2 }}>
             <span className="font-subtitle text-sm md:text-base font-semibold tracking-widest uppercase text-[#9d5035] mb-4 block pl-1">
               Entrer dans l&apos;univers Waliliya
             </span>
           </FadeIn>
 
-          {/* UPDATED: Main Headline is Olive Green */}
           <div className="font-title text-[#9d5035]">
             <RevealText
               text="L'Élégance"
@@ -90,7 +88,6 @@ export default function HeroSection() {
             />
           </div>
 
-          {/* UPDATED: Subtext is Olive Green (slightly transparent) */}
           <FadeIn
             className="mt-6 max-w-lg text-lg md:text-xl text-[#9d5035]/95 font-text leading-relaxed pl-1"
             vars={{ delay: 0.8 }}
@@ -105,9 +102,7 @@ export default function HeroSection() {
 
           <FadeIn className="mt-6" vars={{ delay: 1 }}>
             <Link href="/search">
-              {/* UPDATED: Button BG is Olive Green (#737b4c) */}
               <button className="group relative overflow-hidden rounded-2xl bg-[#737b4c] px-8 py-4 transition-all duration-300 hover:shadow-lg cursor-pointer">
-                {/* UPDATED: Button Hover fill is Rust Brown (#9d5035) */}
                 <div className="absolute inset-0 translate-y-full bg-[#d1fa9d] transition-transform duration-300 ease-in-out group-hover:translate-y-0" />
 
                 <span className="relative flex items-center gap-2 font-subtitle text-sm font-bold uppercase tracking-wide text-[#F5F5F0] transition-colors duration-300 group-hover:text-white">

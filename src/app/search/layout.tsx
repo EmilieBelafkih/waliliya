@@ -12,15 +12,12 @@ export default function SearchLayout({
     <SearchLayoutWrapper
       sidebar={
         <>
-          {/* Section 1: Collections */}
           <div>
             <Collections />
           </div>
 
-          {/* Separator */}
           <div className="hidden lg:block w-full h-px bg-[#b88d6a]/20 my-6" />
 
-          {/* Section 2: Sort/Filter */}
           <div>
             <FilterList list={sorting} title="Trier par" />
           </div>

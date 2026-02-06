@@ -30,12 +30,11 @@ export function SectionTwo({
   const { part1Nodes, part2Nodes } = useMemo(() => {
     try {
       const parsed = JSON.parse(richTextJson);
-      // 2. Explicitly type the nodes array
+
       const nodes: RichTextNode[] = parsed.children || [];
 
       let headingCount = 0;
 
-      // 3. 'node' is now correctly typed as RichTextNode
       const splitIndex = nodes.findIndex((node) => {
         if (node.type === 'heading') {
           headingCount++;
@@ -69,7 +68,7 @@ export function SectionTwo({
           duration: 1,
           ease: 'power3.out',
           scrollTrigger: { trigger: '.anim-text-2', start: 'top 80%' },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -82,10 +81,10 @@ export function SectionTwo({
           delay: 0.2,
           ease: 'power3.out',
           scrollTrigger: { trigger: '.anim-image-2', start: 'top 80%' },
-        }
+        },
       );
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (

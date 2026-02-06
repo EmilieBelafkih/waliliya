@@ -11,7 +11,6 @@ import { Menu } from '@/lib/shopify/types';
 import { formatMenuUrl } from '@/lib/utils';
 import Search from './Search';
 
-// --- Sub-component for individual items ---
 function MenuItemTree({
   item,
   level = 0,
@@ -26,7 +25,7 @@ function MenuItemTree({
   const subMenuRef = useRef<HTMLUListElement>(null);
   const arrowRef = useRef<HTMLSpanElement>(null);
 
-  // Use the helper to clean the URL
+  // Helper to clean the URL
   const itemUrl = formatMenuUrl(item.url);
 
   // Animate Submenu Height
@@ -255,7 +254,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
               </div>
             </div>
           </>,
-          document.body
+          document.body,
         )}
     </>
   );

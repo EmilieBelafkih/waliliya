@@ -230,15 +230,12 @@ export function CartProvider({
 
     if (!item) return;
 
-    // 2. Wrap everything in startTransition
     startTransition(async () => {
-      // A. Optimistic Update (Immediate UI feedback)
       updateOptimisticCart({
         type: 'UPDATE_ITEM',
         payload: { merchandiseId, updateType },
       });
 
-      // B. Server Action (Actual data persistence)
       try {
         if (updateType === 'delete') {
           await removeItem(null, merchandiseId);
@@ -254,8 +251,6 @@ export function CartProvider({
           });
         }
       } catch (e) {
-        // If server action fails, the revalidation (or lack thereof)
-        // will naturally sync the cart back to truth on next refresh.
         console.error('Error updating cart:', e);
       }
     });
